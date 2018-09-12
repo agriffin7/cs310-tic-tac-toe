@@ -73,12 +73,14 @@ public class TicTacToeModel {
         
         /* Create grid (width x width) as a 2D Mark array */
 
-        /* INSERT YOUR CODE HERE */
+		grid = new Mark[width][width];
 
         /* Initialize grid by filling every square with empty marks */
 
-        /* INSERT YOUR CODE HERE */
-        
+	for (int i = 0; i <= row; i++){
+		for (int j = 0; i <= col; i++){
+			grid[i][j] = EMPTY;
+        }
     }
 	
     public boolean makeMark(int row, int col) {
@@ -97,7 +99,7 @@ public class TicTacToeModel {
         
         /* Return true if specified location is within grid bounds */
         
-        /* INSERT YOUR CODE HERE */
+        
 
         return false; /* remove this line! */
         

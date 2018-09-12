@@ -16,9 +16,17 @@ public class TicTacToeView {
         
         /* Print the board to the console (see examples) */
         
-        /* INSERT YOUR CODE HERE */
-
+		for(int i = 0; i <= width; i++){
+			System.out.print(i);
+		}
+		for(int j = 0; j <= width; j++){
+			System.out.print(j);
+			for(int k = 0; k <= width; k++){
+				System.out.print(grid[j][k]);
+			}
+		}
     }
+		
 
     public void showNextMovePrompt() {
 
@@ -32,7 +40,7 @@ public class TicTacToeView {
 
         /* Display an error if input is invalid (see examples) */
 
-        /* INSERT YOUR CODE HERE */
+        System.out.prinln("That is not a valid input!")
 
     }
 
