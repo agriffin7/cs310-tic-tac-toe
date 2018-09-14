@@ -95,9 +95,11 @@ public class TicTacToeModel {
 			   if(isSquareMarked(row,col) == false){
 					   if (xTurn == true){
 						   grid[row][col] = Mark.X;
+						   xTurn = false;
 				   }
 				   else{
 					   grid[row][col] = Mark.O;
+					   xTurn = true;
 				}
 			}
 		}
