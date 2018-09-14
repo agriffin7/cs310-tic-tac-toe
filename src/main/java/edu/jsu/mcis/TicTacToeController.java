@@ -35,20 +35,13 @@ public class TicTacToeController {
            error message using view's showInputError() if input is invalid. */
 		   
 		int markWidthLocation = keyboard.nextInt();
-		int markHeightLocation = keyboard.nextInt();
-		
-		model.isValidSquare(markWidthLocation, markHeightLocation);
-		if (true){
-			model.isSquareMarked(markWidthLocation, markHeightLocation);
-			if (false){
-				model.makeMark(markWidthLocation, markHeightLocation);
-			}
-			else{
-				System.out.println("That location is already marked!");
-			}
+		if (keyboard.hasNextInt()){
+			int markHeightLocation = keyboard.nextInt();
+			
+			model.makeMark(markWidthLocation,markHeightLocation);
 		}
 		else{
-		view.showInputError();
+			System.out.println("Input is invalid!");
 		}
 	}
 }

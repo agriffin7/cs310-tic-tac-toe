@@ -78,7 +78,7 @@ public class TicTacToeModel {
         /* Initialize grid by filling every square with empty marks */
 
 		for (int i = 0; i < width; i++){
-			for (int j = 0; i < width; i++){
+			for (int j = 0; j < width; j++){
 				grid[i][j] = Mark.EMPTY;
 			}
 		}
@@ -91,11 +91,15 @@ public class TicTacToeModel {
            location, but only if the location is valid and if the square is
            empty! */
 		   
-		   if (xTurn == true){
-			   grid[row][col] = Mark.X;
-		   }
-		   else{
-			   grid[row][col] = Mark.O;
+		   if(isValidSquare(row,col) == true){
+			   if(isSquareMarked(row,col) == false){
+					   if (xTurn == true){
+						   grid[row][col] = Mark.X;
+				   }
+				   else{
+					   grid[row][col] = Mark.O;
+				}
+			}
 		}
 		return true;
 	}
