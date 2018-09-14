@@ -33,15 +33,21 @@ public class TicTacToeController {
            two integers, the row and the column (for example, "1 1" for the
            center square of a 3 x 3 grid).  Make mark if input is valid, or show
            error message using view's showInputError() if input is invalid. */
-        
-		Scanner input = new Scanner(System.in);
-		int markWidthLocation = input.nextInt();
-		int markHeightLocation = input.nextInt();
+		   
+		int markWidthLocation = keyboard.nextInt();
+		int markHeightLocation = keyboard.nextInt();
 		
-		if(markWidthLocation <= 3 && markHeightLocation <=3){
-			model.makeMark(markWidthLocation,markHeightLocation)
+		model.isValidSquare(markWidthLocation, markHeightLocation);
+		if true{
+			model.isSquareMarked(markWidthLocation, markHeightLocation);
+			if false{
+				model.makeMark(markWidthLocation, markHeightLocation);
+			}
+			else{
+				System.out.println("That location is already marked!");
 		}
 		else{
 			view.showInputError();
-	}	
+		}
+	}
 }

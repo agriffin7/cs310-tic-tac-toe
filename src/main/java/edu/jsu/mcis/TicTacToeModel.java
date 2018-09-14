@@ -77,42 +77,50 @@ public class TicTacToeModel {
 
         /* Initialize grid by filling every square with empty marks */
 
-	for (int i = 0; i <= row; i++){
-		for (int j = 0; i <= col; i++){
-			grid[i][j] = EMPTY;
-        }
-    }
+		for (int i = 0; i <= row; i++){
+			for (int j = 0; i <= col; i++){
+				grid[i][j] = EMPTY;
+			}
+		}
+	}
+	
 	
     public boolean makeMark(int row, int col) {
         
         /* Place the current player's mark in the square at the specified
            location, but only if the location is valid and if the square is
            empty! */
-        
-        /* INSERT YOUR CODE HERE */
-
-        return false; /* remove this line! */
-        
-    }
+		   
+		   if (xTurn == true){
+			   grid[row][col] = X;
+		   }
+		   else{
+			   grid[row]col] = O;
+		}
+	}
 	
     private boolean isValidSquare(int row, int col) {
         
         /* Return true if specified location is within grid bounds */
-        
-        
-
-        return false; /* remove this line! */
+        for (int i = 0; i <= row, i++){
+			for (int j = 0; j <= col, j++){
+				return true;
+			}
+		}
+		return false;
         
     }
 	
     private boolean isSquareMarked(int row, int col) {
         
         /* Return true if square at specified location is marked */
-        
-        /* INSERT YOUR CODE HERE */
-
-        return false; /* remove this line! */
-            
+		
+		if (grid[row][col] == X || grid[row][col] == O){
+			return true;
+		}
+		else{
+			return false;
+		}  
     }
 	
     public Mark getMark(int row, int col) {
