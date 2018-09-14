@@ -102,6 +102,9 @@ public class TicTacToeModel {
 					   xTurn = true;
 				}
 			}
+			else{
+				return false;
+			}
 		}
 		return true;
 	}

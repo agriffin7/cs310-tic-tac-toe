@@ -38,7 +38,11 @@ public class TicTacToeController {
 		if (keyboard.hasNextInt()){
 			int markHeightLocation = keyboard.nextInt();
 			
-			model.makeMark(markWidthLocation,markHeightLocation);
+			if (markWidthLocation < model.getWidth()){
+				if (markHeightLocation < model.getWidth()){
+					model.makeMark(markWidthLocation,markHeightLocation);
+				}
+			}
 		}
 		else{
 			System.out.println("Input is invalid!");
