@@ -176,7 +176,7 @@ public class TicTacToeModel {
 		if (isMarkWin(Mark.X) == false && isMarkWin(Mark.O) == false){
 			for (int i = 0; i < width; i++){
 			for (int j = 0; j < width; j++){
-				if (grid[i][j] == Mark.EMPTY){
+				if (grid[i][j] != Mark.EMPTY){
 					emptyCounter++;
 				}
 			}
