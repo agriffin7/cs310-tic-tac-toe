@@ -107,13 +107,12 @@ public class TicTacToeModel {
     public boolean isValidSquare(int row, int col) {
         
         /* Return true if specified location is within grid bounds */
-        for (int i = 0; i < row; i++){
-			for (int j = 0; j < col; j++){
+        if (row < grid[row].length){
+			if (col < grid[col].length){
 				return true;
 			}
 		}
 		return false;
-        
     }
 	
     public boolean isSquareMarked(int row, int col) {
@@ -171,21 +170,25 @@ public class TicTacToeModel {
     private boolean isTie() {
         
         /* Check the squares of the board to see if the game is a tie */
-		boolean TF = false;
+		boolean TF;
 		int emptyCounter = 0;
+		
 		if (isMarkWin(Mark.X) == false && isMarkWin(Mark.O) == false){
 			for (int i = 0; i < width; i++){
-			for (int j = 0; j < width; j++){
-				if (grid[i][j] != Mark.EMPTY){
-					emptyCounter++;
+				for (int j = 0; j < width; j++){
+					if (grid[i][j] == Mark.EMPTY){
+						emptyCounter++;
+					}
 				}
 			}
 		}
 		if (emptyCounter == 0){
 			TF = true;
 		}
-		
+		else{
+			TF = false;
 		}
+		
 		return TF;
     }
 
