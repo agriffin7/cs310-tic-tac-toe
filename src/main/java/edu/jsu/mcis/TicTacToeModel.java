@@ -145,10 +145,10 @@ public class TicTacToeModel {
 		   if(isMarkWin(Mark.X)){
 			   return Result.X;
 		   }
-		   if (isMarkWin(Mark.O)){
+		   else if (isMarkWin(Mark.O)){
 			   return Result.O;
 		   }
-		   if (isTie()){
+		   else if (isTie()){
 			   return Result.TIE;
 		}
 		else{
@@ -172,9 +172,19 @@ public class TicTacToeModel {
         
         /* Check the squares of the board to see if the game is a tie */
 		boolean TF = false;
+		int emptyCounter = 0;
 		if (isMarkWin(Mark.X) == false && isMarkWin(Mark.O) == false){
+			for (int i = 0; i < width; i++){
+			for (int j = 0; j < width; j++){
+				if (grid[i][j] == Mark.EMPTY){
+					emptyCounter++;
+				}
+			}
+		}
+		if (emptyCounter == 0){
 			TF = true;
 		}
+		
 		return TF;
     }
 
