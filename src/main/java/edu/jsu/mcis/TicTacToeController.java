@@ -38,16 +38,17 @@ public class TicTacToeController {
 		int markHeightLocation = keyboard.nextInt();
 		
 		model.isValidSquare(markWidthLocation, markHeightLocation);
-		if true{
+		if (true){
 			model.isSquareMarked(markWidthLocation, markHeightLocation);
-			if false{
+			if (false){
 				model.makeMark(markWidthLocation, markHeightLocation);
 			}
 			else{
 				System.out.println("That location is already marked!");
+			}
 		}
 		else{
-			view.showInputError();
+		view.showInputError();
 		}
 	}
 }

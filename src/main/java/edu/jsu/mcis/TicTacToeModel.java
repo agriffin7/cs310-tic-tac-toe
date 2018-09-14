@@ -77,9 +77,9 @@ public class TicTacToeModel {
 
         /* Initialize grid by filling every square with empty marks */
 
-		for (int i = 0; i <= row; i++){
-			for (int j = 0; i <= col; i++){
-				grid[i][j] = EMPTY;
+		for (int i = 0; i < width; i++){
+			for (int j = 0; i < width; i++){
+				grid[i][j] = Mark.EMPTY;
 			}
 		}
 	}
@@ -92,18 +92,19 @@ public class TicTacToeModel {
            empty! */
 		   
 		   if (xTurn == true){
-			   grid[row][col] = X;
+			   grid[row][col] = Mark.X;
 		   }
 		   else{
-			   grid[row]col] = O;
+			   grid[row][col] = Mark.O;
 		}
+		return true;
 	}
 	
-    private boolean isValidSquare(int row, int col) {
+    public boolean isValidSquare(int row, int col) {
         
         /* Return true if specified location is within grid bounds */
-        for (int i = 0; i <= row, i++){
-			for (int j = 0; j <= col, j++){
+        for (int i = 0; i < row; i++){
+			for (int j = 0; j < col; j++){
 				return true;
 			}
 		}
@@ -111,11 +112,11 @@ public class TicTacToeModel {
         
     }
 	
-    private boolean isSquareMarked(int row, int col) {
+    public boolean isSquareMarked(int row, int col) {
         
         /* Return true if square at specified location is marked */
 		
-		if (grid[row][col] == X || grid[row][col] == O){
+		if (grid[row][col] == Mark.X || grid[row][col] == Mark.O){
 			return true;
 		}
 		else{
@@ -137,14 +138,17 @@ public class TicTacToeModel {
            tie, or if the game is not over, and return the corresponding Result
            value */
 		   
-		   if(isMarkWin(X){
-			   return X;
+		   if(isMarkWin(Mark.X)){
+			   return Result.X;
 		   }
-		   if (isMarkWin(O){
-			   return O;
+		   if (isMarkWin(Mark.O)){
+			   return Result.O;
 		   }
 		   if (isTie()){
-			   return "TIE";
+			   return Result.TIE;
+		}
+		else{
+			return Result.NONE;
 		}
 	}
 	
@@ -163,11 +167,11 @@ public class TicTacToeModel {
     private boolean isTie() {
         
         /* Check the squares of the board to see if the game is a tie */
-		
-		if (isMarkWin(X) == false && IsMarkWin(O) == false){
-			return true;
+		boolean TF = false;
+		if (isMarkWin(Mark.X) == false && isMarkWin(Mark.O) == false){
+			TF = true;
 		}
-        
+		return TF;
     }
 
     public boolean isGameover() {
