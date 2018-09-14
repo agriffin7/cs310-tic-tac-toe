@@ -126,10 +126,8 @@ public class TicTacToeModel {
     public Mark getMark(int row, int col) {
         
         /* Return mark from the square at the specified location */
-        
-        /* INSERT YOUR CODE HERE */
-
-        return null; /* remove this line! */
+		
+		return grid[row][col];
             
     }
 	
@@ -138,12 +136,18 @@ public class TicTacToeModel {
         /* Use isMarkWin() to see if X or O is the winner, if the game is a
            tie, or if the game is not over, and return the corresponding Result
            value */
-        
-        /* INSERT YOUR CODE HERE */
-
-        return null; /* remove this line! */
-
-    }
+		   
+		   if(isMarkWin(X){
+			   return X;
+		   }
+		   if (isMarkWin(O){
+			   return O;
+		   }
+		   if (isTie()){
+			   return "TIE";
+		}
+	}
+	
 	
     private boolean isMarkWin(Mark mark) {
         
@@ -159,10 +163,10 @@ public class TicTacToeModel {
     private boolean isTie() {
         
         /* Check the squares of the board to see if the game is a tie */
-
-        /* INSERT YOUR CODE HERE */
-
-        return false; /* remove this line! */
+		
+		if (isMarkWin(X) == false && IsMarkWin(O) == false){
+			return true;
+		}
         
     }
 

@@ -19,10 +19,12 @@ public class TicTacToeView {
 		for(int i = 0; i <= width; i++){
 			System.out.print(i);
 		}
+		System.out.println();
 		for(int j = 0; j <= width; j++){
 			System.out.print(j);
+			System.out.print(" ");
 			for(int k = 0; k <= width; k++){
-				System.out.print(grid[j][k]);
+				System.out.print(mark.getMark(j,k));
 			}
 		}
     }
