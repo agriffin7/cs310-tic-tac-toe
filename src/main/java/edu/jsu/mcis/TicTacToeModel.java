@@ -106,14 +106,26 @@ public class TicTacToeModel {
 				return false;
 			}
 		}
+		else{
+			return false;
+		}
+		
 		return true;
 	}
 	
     public boolean isValidSquare(int row, int col) {
         
         /* Return true if specified location is within grid bounds */
-        if (row < grid[row].length){
-			if (col < grid[col].length){
+		
+		if (row < 0){
+			return false;
+		}
+		else if (col < 0){
+			return false;
+		}
+		
+        if (row < getWidth()){
+			if (col < getWidth()){
 				return true;
 			}
 		}
@@ -165,8 +177,8 @@ public class TicTacToeModel {
         
         /* Check the squares of the board to see if the specified mark is the
            winner */
-        
-        /* INSERT YOUR CODE HERE */
+		   
+		   
 
         return false; /* remove this line! */
 
