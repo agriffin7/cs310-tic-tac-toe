@@ -177,9 +177,109 @@ public class TicTacToeModel {
         
         /* Check the squares of the board to see if the specified mark is the
            winner */
+		  
+		   //find if it's a 3x3 or 5x5
+		   if (getWidth() == 3){
+			   //ROWS
+			   
+			   //Top Row
+			   if(grid[0][0] == mark && grid[0][1] == mark && grid[0][2] == mark){
+				   return true;
+			   }
+			   //Middle Row
+			   if (grid[1][0] == mark && grid[1][1] == mark && grid[1][2] == mark){
+				   return true;
+			   }
+			   //Bottom row
+			   if (grid[2][0] == mark && grid[2][1] == mark && grid[2][2] == mark){
+				   return true;
+			   }
+			   //COLUMNS
+			   
+			   //Left Col
+			   if (grid[0][0] == mark && grid[1][0] == mark && grid[2][0] == mark){
+				   return true;
+			   }
+			   //Middle Col
+			   if (grid[0][1] == mark && grid[1][1] == mark && grid[2][1] == mark){
+				   return true;
+			   }
+			   //Right Col
+			   if (grid[0][2] == mark && grid[1][2] == mark && grid[2][2] == mark){
+				   return true;
+			   }
+			   //DIAGNOLS
+			   
+			   //Top Left to Bottom Right / Bottom Right to Top Left
+			   if (grid[0][0] == mark && grid[1][1] == mark && grid[2][2] == mark){
+				   return true;
+			   }
+			   //Top Right to Bottom Left / Bottom Right to Top Left
+			   if (grid[0][2] == mark && grid[1][1] == mark && grid[2][0] == mark){
+				   return true;
+			   }  
+			   
+		   }
+		   else if (getWidth() == 5){
+			      //ROWS
+			   
+			   //First Row
+			   if(grid[0][0] == mark && grid[0][1] == mark && grid[0][2] == mark && grid[0][3] == mark && grid[0][4] == mark){
+				   return true;
+			   }
+			   //Second Row
+			   if (grid[1][0] == mark && grid[1][1] == mark && grid[1][2] == mark && grid[1][3] == mark && grid[1][4] == mark){
+				   return true;
+			   }
+			   //Third row
+			   if (grid[2][0] == mark && grid[2][1] == mark && grid[2][2] == mark && grid[2][3] == mark && grid[2][4] == mark){
+				   return true;
+			   }
+			   //Fourth row
+			   if (grid[3][0] == mark && grid [3][1] == mark && grid[3][2] == mark && grid[3][3] == mark && grid[3][4] == mark){
+				   return true;
+			   }
+			   //Fifth row
+			   if (grid[4][0] == mark && grid [4][1] == mark && grid[4][2] == mark && grid[4][3] == mark && grid[4][4] == mark){
+				   return true;
+			   }
+			   
+			   //COLUMNS
+			   
+			   //First Col
+			   if (grid[0][0] == mark && grid[1][0] == mark && grid[2][0] == mark && grid[3][0] == mark && grid[4][0] == mark){
+				   return true;
+			   }
+			   //Second Col
+			    if (grid[0][1] == mark && grid[1][1] == mark && grid[2][1] == mark && grid[3][1] == mark && grid[4][1] == mark){
+				   return true;
+			   }
+			   //Third Col
+			    if (grid[0][2] == mark && grid[1][2] == mark && grid[2][2] == mark && grid[3][2] == mark && grid[4][2] == mark){
+				   return true;
+			   }
+			   //Fourth Col
+		   if (grid[0][3] == mark && grid[1][3] == mark && grid[2][3] == mark && grid[3][3] == mark && grid[4][3] == mark){
+				   return true;
+			   }
+			   //Fifth Col
+			    if (grid[0][4] == mark && grid[1][4] == mark && grid[2][4] == mark && grid[3][4] == mark && grid[4][4] == mark){
+				   return true;
+			   }
+			   //DIAGNOLS
+			   
+			   //Top Left to Bottom Right / Bottom Right to Top Left
+			   if (grid[0][0] == mark && grid[1][1] == mark && grid[2][2] == mark && grid[3][3] == mark && grid[4][4] == mark){
+				   return true;
+			   }
+			   //Top Right to Bottom Left / Bottom Right to Top Left
+			   if (grid[0][4] == mark && grid[1][3] == mark && grid[2][2] == mark && grid[3][1] == mark && grid[4][0] == mark){
+				   return true;
+			   }  
+			   
+		   }
 		   
 		   
-
         return false; /* remove this line! */
 
     }
