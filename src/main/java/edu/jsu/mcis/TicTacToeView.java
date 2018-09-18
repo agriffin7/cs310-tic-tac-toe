@@ -1,8 +1,22 @@
 package edu.jsu.mcis;
+import java.awt.*;
+import javax.swing.*;
+import java.util.Scanner;
 
-public class TicTacToeView {
-
-    private TicTacToeModel model;
+public class TicTacToeView extends JPanel{
+	
+	private TicTacToeModel model;
+		
+	public TicTacToeView(){
+		super();
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) { //create GUI elements here
+		super.paintComponent(g);
+	}
+	
+	
     
     /* CONSTRUCTOR */
 	
@@ -13,30 +27,20 @@ public class TicTacToeView {
     }
 	
     public void viewModel() {
-        
-        /* Print the board to the console (see examples) */
-        System.out.print("\n\n  ");
-		for(int i = 0; i < model.getWidth(); i++){
-			System.out.print(i);
-		}
-		System.out.print("\n\n");
-		 for(int j = 0; j < model.getWidth(); j++){
-			System.out.print(j);
-			System.out.print(" ");
-			for(int k = 0; k < model.getWidth(); k++){
-				System.out.print(model.getMark(j,k));
-			}
-			System.out.print("\n");
-		}
-		System.out.print("\n\n");
+		
+		//the GUI
+		JFrame window = new JFrame("Tic-Tac-Toe");
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.getContentPane().add(new TicTacToeView());
+		window.setSize(300,300);
+		window.setVisible(true);
+		
     }
 		
 
     public void showNextMovePrompt() {
 
-        /* Display a prompt for the player's next move (see examples) */
-
-		System.out.print("Enter the row and column numbers, separated by a space:");
+	
 		
     }
 
