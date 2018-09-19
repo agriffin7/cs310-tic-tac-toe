@@ -1,11 +1,14 @@
 package edu.jsu.mcis;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class TicTacToe {
 
     private static final int DEFAULT_WIDTH = 3;
 
     public static void main(String[] args) {
-        
+		
         /* Set initial size of game board (default is 3x3) */
 
         int width = DEFAULT_WIDTH;
@@ -26,6 +29,7 @@ public class TicTacToe {
         TicTacToeModel model = new TicTacToeModel(width);
         TicTacToeView view = new TicTacToeView(model);
         TicTacToeController controller = new TicTacToeController(model, view);
+		
         
         /* MAIN LOOP */
 

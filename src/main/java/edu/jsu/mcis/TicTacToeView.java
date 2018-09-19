@@ -6,13 +6,23 @@ import java.util.Scanner;
 
 public class TicTacToeView extends JPanel implements ActionListener{
 	
+	public TicTacToeView(){
+		super();
+	}
+	
 	private TicTacToeModel model;
 	
-	private JButton[][] squares;
-	private JPanel squaresPanel = new JPanel(new GridLayout(model.getWidth(), model.getWidth()));;
-	private JLabel resultLabel = new JLabel("");
+	private JFrame window;
+	private JButton squares[][];
+	private JPanel squaresPanel = new JPanel(new gridLayout(model.getWidth(),model.getWidth()));
+	private JLabel resultLabel;
 	private String letter;
 	private String message;
+	
+	@Override
+	protected void paintComponent(Graphics g){
+		super.paintComponent(g);
+	}
 
     
     /* CONSTRUCTOR */
@@ -20,45 +30,37 @@ public class TicTacToeView extends JPanel implements ActionListener{
     public TicTacToeView(TicTacToeModel model) {
         
         this.model = model;
+
         
     }
 	
     public void viewModel() {
 		
 		//the GUI
-		JFrame window = new JFrame("Tic-Tac-Toe");
+		window = new JFrame("Tic-Tac-Toe");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setSize(300,300);
+		window.getContentPane().add(new TicTacToeView());
 		window.setVisible(true);
-
 		
 		//create the buttons
+	
 		
 		for (int row = 0; row < model.getWidth(); row++){
 			for (int col = 0; col < model.getWidth(); col++){
-				squares[row][col] = new JButton("");
+				squares = new JButton[model.getWidth()][model.getWidth()];
+				squares[row][col].addActionListener(this);
 				squares[row][col].setName("Square" + row + col);
-			}
-		}
-		for (int row = 0; row < model.getWidth(); row++){
-				for (int col = 0; col < model.getWidth(); col++){
-					squares[row][col].addActionListener(this);
-				}
-			}
-			for (int row = 0; row < model.getWidth(); row++){
-				for (int col = 0; col < model.getWidth(); col++){
-					squaresPanel.add(squares[row][col]);
+				squaresPanel.add(squares[row][col]);
 			}
 		}
 		
-		window.add(squaresPanel);
+		
+		add(squaresPanel);
 		
 		//create a JPanel		
-		JLabel resultLabel = new JLabel("");
+		resultLabel = new JLabel("");
 		resultLabel.setName("ResultLabel");
-		message = "Welcome to Tic-Tac-Toe!";
-		resultLabel.setText(message);
-		window.add(resultLabel, BorderLayout.SOUTH);
     }
 		
 
@@ -88,24 +90,11 @@ public class TicTacToeView extends JPanel implements ActionListener{
 		//caculate who's turn it is
 		if (model.isXTurn()){
 			letter = "X";
-			squares[1][1].setText("Test");
 		}
 		else{
 			letter = "O";
-			squares[1][2].setText("Test2");
 		} 
 			
-		//set the letter
-		for (int i = 0; i < getWidth(); i++){
-			for (int j = 0; j < getWidth(); j++){
-				if (e.getSource() == squares[i][j]){
-					squares[i][j].setText(letter);
-				}
-				else{
-					squares[i][j].setText("ERROR!");
-				}
-			}
-		}
 	}
 	
 }
