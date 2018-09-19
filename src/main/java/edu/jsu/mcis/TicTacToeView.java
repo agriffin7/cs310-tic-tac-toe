@@ -14,7 +14,7 @@ public class TicTacToeView extends JPanel implements ActionListener{
 	
 	private JFrame window;
 	private JButton squares[][];
-	private JPanel squaresPanel = new JPanel(new gridLayout(model.getWidth(),model.getWidth()));
+	private JPanel squaresPanel;
 	private JLabel resultLabel;
 	private String letter;
 	private String message;
@@ -37,30 +37,10 @@ public class TicTacToeView extends JPanel implements ActionListener{
     public void viewModel() {
 		
 		//the GUI
-		window = new JFrame("Tic-Tac-Toe");
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setSize(300,300);
-		window.getContentPane().add(new TicTacToeView());
-		window.setVisible(true);
 		
 		//create the buttons
 	
-		
-		for (int row = 0; row < model.getWidth(); row++){
-			for (int col = 0; col < model.getWidth(); col++){
-				squares = new JButton[model.getWidth()][model.getWidth()];
-				squares[row][col].addActionListener(this);
-				squares[row][col].setName("Square" + row + col);
-				squaresPanel.add(squares[row][col]);
-			}
-		}
-		
-		
-		add(squaresPanel);
-		
-		//create a JPanel		
-		resultLabel = new JLabel("");
-		resultLabel.setName("ResultLabel");
+		//create a JPanel
     }
 		
 
