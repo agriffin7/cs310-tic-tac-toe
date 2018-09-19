@@ -35,6 +35,23 @@ public class TicTacToeView extends JPanel{
 		window.setSize(300,300);
 		window.setVisible(true);
 		
+		JPanel squaresPanel = new JPanel(new GridLayout(model.getWidth(), model.getWidth()));
+		
+		//create the buttons
+		JButton squares[][] = new JButton[model.getWidth()][model.getWidth()];
+		for (int row = 0; row < model.getWidth(); row++){
+			for (int col = 0; col < model.getWidth(); col++){
+				squares[row][col] = new JButton();
+				//squares[row][col].addActionListener(this);
+				squares[row][col].setName("Square" + row + col);
+				squaresPanel.add(squares[row][col]);
+			}
+		}
+		window.add(squaresPanel);
+		
+		JLabel resultLabel = new JLabel();
+		resultLabel.setName("ResultLabel");
+		
     }
 		
 
