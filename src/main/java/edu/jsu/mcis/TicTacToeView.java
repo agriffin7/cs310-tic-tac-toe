@@ -86,8 +86,28 @@ public class TicTacToeView extends JPanel implements ActionListener {
         
     public void updateSquares() {
 
+        int MarkRowLocation = 0;
+    	int MarkColLocation = 0;
+    	String Marktype = "";
+
         /* Loop through all View buttons and (re)set the text of each button
            to reflect the grid contents (use the Model's "getMark()" method). */
+    	
+    	for (int row = 0; row < 3; row++) {
+    		for (int col = 0; col < 3; col++) {
+    			if (model.getMark(row, col) == Mark.X) {
+    				Marktype = "X";
+    				MarkRowLocation = row;
+    				MarkColLocation = col;
+    			}
+    			if (model.getMark(row, col) == Mark.EMPTY.O) {
+    				Marktype = "O";
+    				MarkRowLocation = row;
+    				MarkColLocation = col;
+    			}
+    		}	
+    	}
+    	squares[MarkRowLocation][MarkColLocation].setText(Marktype);
 
     }
         
