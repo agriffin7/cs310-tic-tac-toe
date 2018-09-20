@@ -94,7 +94,7 @@ public class TicTacToeView extends JPanel implements ActionListener {
 
         int MarkRowLocation = 0;
     	int MarkColLocation = 0;
-    	String Marktype = "";
+    	String Marktype = "ERROR";
 
         /* Loop through all View buttons and (re)set the text of each button
            to reflect the grid contents (use the Model's "getMark()" method). */
@@ -106,7 +106,7 @@ public class TicTacToeView extends JPanel implements ActionListener {
     				MarkRowLocation = row;
     				MarkColLocation = col;
     			}
-    			if (model.getMark(row, col) == Mark.EMPTY.O) {
+    			if (model.getMark(row, col) == Mark.O) {
     				Marktype = "O";
     				MarkRowLocation = row;
     				MarkColLocation = col;
