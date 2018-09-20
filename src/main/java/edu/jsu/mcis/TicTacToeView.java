@@ -81,6 +81,12 @@ public class TicTacToeView extends JPanel implements ActionListener {
 		if (colUniCode == 50) {
 			col = 2;
 		}
+		//make mark
+		model.makeMark(row, col);
+		
+		//update squares
+		updateSquares();
+		
 
     }
         
