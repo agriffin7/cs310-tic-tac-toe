@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import edu.jsu.mcis.TicTacToeModel.Mark;
+import edu.jsu.mcis.TicTacToeModel.Result;
+
 public class TicTacToeView extends JPanel implements ActionListener {
     
     TicTacToeModel model;
@@ -86,6 +89,17 @@ public class TicTacToeView extends JPanel implements ActionListener {
 		
 		//update squares
 		updateSquares();
+		
+		//Test to see if game has ended
+		if (model.getResult() == Result.X) {
+			resultLabel.setText("X");
+		}
+		if (model.getResult() == Result.O) {
+			resultLabel.setText("O");
+		}
+		if (model.getResult() == Result.TIE) {
+			resultLabel.setText("Tie");
+		}
 		
 
     }
