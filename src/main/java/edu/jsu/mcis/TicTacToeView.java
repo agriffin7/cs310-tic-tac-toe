@@ -57,6 +57,30 @@ public class TicTacToeView extends JPanel implements ActionListener {
         String name = ((JButton) event.getSource()).getName(); // Get button name
         
         // INSERT YOUR CODE HERE
+		  // INSERT YOUR CODE HERE
+        int row = 0;
+        int col = 0;
+		int rowUniCode = name.codePointAt(6);
+		int colUniCode = name.codePointAt(7);
+		
+		if (rowUniCode == 48) {
+			row = 0;
+		}
+		if (rowUniCode == 49) {
+			row = 1;
+		}
+		if (rowUniCode == 50) {
+			row = 2;
+		}
+		if (colUniCode == 48) {
+			col = 0;
+		}
+		if (colUniCode == 49) {
+			col = 1;
+		}
+		if (colUniCode == 50) {
+			col = 2;
+		}
 
     }
         
