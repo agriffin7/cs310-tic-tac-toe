@@ -14,6 +14,8 @@ public class TicTacToeView extends JPanel implements ActionListener {
     private JButton[][] squares;
     private JPanel squaresPanel;
     private JLabel resultLabel;
+    private int MarkRow;
+    private int MarkCol;
 
     public TicTacToeView(TicTacToeModel model) {
 
@@ -60,7 +62,6 @@ public class TicTacToeView extends JPanel implements ActionListener {
         String name = ((JButton) event.getSource()).getName(); // Get button name
         
         // INSERT YOUR CODE HERE
-		  // INSERT YOUR CODE HERE
         int row = 0;
         int col = 0;
 		int rowUniCode = name.codePointAt(6);
@@ -86,6 +87,8 @@ public class TicTacToeView extends JPanel implements ActionListener {
 		}
 		//make mark
 		model.makeMark(row, col);
+		MarkRow = row;
+		MarkCol = col;
 		
 		//update squares
 		updateSquares();
@@ -93,41 +96,36 @@ public class TicTacToeView extends JPanel implements ActionListener {
 		//Test to see if game has ended
 		if (model.getResult() == Result.X) {
 			resultLabel.setText("X");
+			model.isGameover();
 		}
 		if (model.getResult() == Result.O) {
 			resultLabel.setText("O");
+			model.isGameover();
 		}
 		if (model.getResult() == Result.TIE) {
 			resultLabel.setText("Tie");
+			model.isGameover();
 		}
 		
 
     }
         
     public void updateSquares() {
-
-        int MarkRowLocation = 0;
-    	int MarkColLocation = 0;
     	String Marktype = "ERROR";
 
         /* Loop through all View buttons and (re)set the text of each button
            to reflect the grid contents (use the Model's "getMark()" method). */
     	
-    	for (int row = 0; row < 3; row++) {
-    		for (int col = 0; col < 3; col++) {
-    			if (model.getMark(row, col) == Mark.X) {
-    				Marktype = "X";
-    				MarkRowLocation = row;
-    				MarkColLocation = col;
-    			}
-    			if (model.getMark(row, col) == Mark.O) {
-    				Marktype = "O";
-    				MarkRowLocation = row;
-    				MarkColLocation = col;
-    			}
-    		}	
-    	}
-    	squares[MarkRowLocation][MarkColLocation].setText(Marktype);
+    	if (model.getMark(MarkRow, MarkCol) == Mark.X) {
+    		Marktype = "X";
+
+    		}
+    	if (model.getMark(MarkRow, MarkCol) == Mark.O) {
+    		Marktype = "O";
+    		}
+    	
+    	System.out.println(MarkRow + " " + MarkCol);
+    	squares[MarkRow][MarkCol].setText(Marktype);
 
     }
         
