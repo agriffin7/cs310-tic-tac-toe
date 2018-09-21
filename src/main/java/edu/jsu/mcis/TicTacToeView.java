@@ -103,7 +103,7 @@ public class TicTacToeView extends JPanel implements ActionListener {
 			model.isGameover();
 		}
 		if (model.getResult() == Result.TIE) {
-			resultLabel.setText("Tie");
+			resultLabel.setText("TIE");
 			model.isGameover();
 		}
 		
